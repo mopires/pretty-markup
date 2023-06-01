@@ -1,0 +1,23 @@
+{
+  "name": "pretty-markup",
+  "version": "0.0.1",
+  "description": "",
+  "main": "pretty-markup.js",
+  "author": "Matheus Pires",
+  "license": "ISC",
+  "keywords": [
+    "frontend",
+    "css",
+    "html",
+    "bootstrap",
+    "sass",
+    "preprocessor",
+    "style",
+    "clean code",
+    "design",
+    "html5",
+    "transpiler",
+    "frontend development",
+    "scss"
+  ]
+}
