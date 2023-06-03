@@ -33,7 +33,8 @@ class Parser {
                 return tag;
                 break;
             case "style":
-                tag = "<link rel=\"stylesheet\" " + element.attr + " />" + os.EOL;
+
+                tag = "<link rel=\"stylesheet\" " + element.attr.toString().replace("src", "href") + " />" + os.EOL;
                 this.getLinkedFilePath(element.attr);
                 return tag;
                 break;
