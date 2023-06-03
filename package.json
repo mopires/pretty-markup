@@ -1,8 +1,11 @@
 {
   "name": "pretty-markup",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "pretty-markup.js",
+  "bin": {
+    "pm": "./Main.js"
+  },
   "author": "Matheus Pires",
   "license": "ISC",
   "keywords": [
@@ -19,5 +22,13 @@
     "transpiler",
     "frontend development",
     "scss"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "chalk": "^4.1.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
 }
