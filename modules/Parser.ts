@@ -19,7 +19,7 @@ class Parser {
     }
 
     processFeature(element: Element) {
-        // A feature is a htmlpp keyword/tag
+        // A feature is a keyword/tag of Pretty Markup
         let feature = ["//", "icon", "style", "javascript", "$", element.Symbol];
         let feature_tag = feature.indexOf(element.Symbol) > -1 ? feature[feature.indexOf(element.Symbol)] : "";
         let tag = "";
@@ -60,7 +60,7 @@ class Parser {
     }
 
     getLinkedFilePath(linked_file: any) {
-        let path_htmlpp = process.cwd() + "/src/" + linked_file[0]
+        let path_pretty = process.cwd() + "/src/" + linked_file[0]
             .replace("href", "")
             .replace("src", "")
             .replace("=", "")
@@ -76,14 +76,14 @@ class Parser {
             .replace("\"", "")
             .replace("\'", "")
             .replace("\'", "");
-        if (path_htmlpp.indexOf("http") > -1 == true) {
+        if (path_pretty.indexOf("http") > -1 == true) {
             return;
         }
-        if (fs.existsSync(path_htmlpp) == false) {
-            log(chalk.yellowBright("Warning: "), chalk.yellow(path_htmlpp + " not found"));
+        if (fs.existsSync(path_pretty) == false) {
+            log(chalk.yellowBright("Warning: "), chalk.yellow(path_pretty + " not found"));
         } else {
             this.linkedFiles.push({
-                path_htmlpp,
+                path_pretty,
                 path_for_build
             })
         }

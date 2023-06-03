@@ -17,7 +17,7 @@ class FileManager {
         folders = fs.readdirSync(path);
         folders.forEach((folder: string): void => {
             if (!fs.statSync(path + folder).isDirectory()) {
-                if (this.isHTMLPPFile(folder)) {
+                if (this.isPrettyFile(folder)) {
                     prettyMarkupFiles.push({
                         name: folder,
                         path: path.replace("./", "")
@@ -48,7 +48,7 @@ class FileManager {
         return protectedDir.indexOf(folder) !== -1;
     }
 
-    private isHTMLPPFile(file: string) {
+    private isPrettyFile(file: string) {
         let fileExtension = file.split(".")[file.split(".").length - 1];
         if (fileExtension === "pm") {
             return true;
@@ -83,7 +83,7 @@ class FileManager {
             if (fs.existsSync(path.dirname(file.path_for_build)) == false) {
                 fs.mkdirSync(path.dirname(file.path_for_build));
             }
-            fs.copyFile(file.path_htmlpp, file.path_for_build, (e: any) => {
+            fs.copyFile(file.path_pretty, file.path_for_build, (e: any) => {
                 if (e) throw e;
             });
         });
