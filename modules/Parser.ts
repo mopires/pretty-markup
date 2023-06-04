@@ -46,10 +46,13 @@ class Parser {
             case "$":
                 return element.FreeText?.toString().trim();
                 break;
-            case "string":
+            case "quotes":
                 return element.String?.toString()
                     .replace("\"", "")
                     .replace("\"", "")
+                break;
+            case "single_quotes":
+                return element.String?.toString()
                     .replace("\'", "")
                     .replace("\'", "");
                 break;

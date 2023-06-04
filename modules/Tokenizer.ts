@@ -137,7 +137,7 @@ class Tokenizer {
                     }
                     this.token_id = tokenId(this.char_buffer);
                     this.syntaxExpression.push({
-                        "Symbol": "string",
+                        "Symbol": "single_quotes",
                         "String": single_quotes_content,
                         "Column": this.column,
                     });
@@ -154,7 +154,7 @@ class Tokenizer {
                     }
                     this.token_id = tokenId(this.char_buffer);
                     this.syntaxExpression.push({
-                        "Symbol": "string",
+                        "Symbol": "quotes",
                         "String": quotes_content,
                         "Column": this.column,
                     });
