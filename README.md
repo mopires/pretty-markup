@@ -1,4 +1,4 @@
-![pretty-logo.svg](pretty-logo.svg)
+![pretty-logo.svg](https://github.com/mopires/pretty-markup/blob/main/pretty-logo.svg)
 
 
 If you came here from <a href="https://www.npmjs.com/package/htmlpp-com-github-mopires">HTMLPP</a>, there is good news for you! Pretty Markup is the production version of HTMLPP. Soon enough this package will be available to use.
