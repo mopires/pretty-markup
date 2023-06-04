@@ -2,98 +2,98 @@
 
 
 If you came here from <a href="https://www.npmjs.com/package/htmlpp-com-github-mopires">HTMLPP</a>, there is good news for you! Pretty Markup is the production version of HTMLPP. Soon enough this package will be available to use.
-- __Alfa comming soon!__
 
 > You can keep posted by following <a href='https://twitter.com/_mopires'>@_mopires</a> on twitter and <a href='https://github.com/mopires'>@mopires</a> on github.
 
 Pretty Markup is a HTML __preprocessor__ that make it more semantic to write html. The concept remains the same, but without the "< > </>", like Sass, but different. You can see this as a super set of HTML, like TypeScript. 
 
-# Example
+> # npm i -g pretty-markup
+
+# Usage
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta description="This is a page made with htmlpp!">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
-  <body class="bg-dark">
-    <main class="container pt-1">
-      <div class="row">
-        <div class="col text-white">
-          <h1>
-            Pretty Markup
-          </h1>
-        </div>
-      </div>
-      <div class="row text-white">
-        <p class='p-1'>
-          Modern way to write html. The concept remains the same, but without the " <>
-            < />". It's like Sass, but different.<br>
-            To concatenate something is simple.</p>
-        <div class="col">
-          <p id='about'>
-            HTMLpp is a HTML preprocessor.</p>
-        </div>
-      </div>
-      <div class="row bg-white">
-        <p>
-          To write text without variables use quotes. Single quotes or normal quotes</p>
-      </div>
-    </main>
-  </body>
+<html>
+<head>
+    <title>
+        Pretty Markup File!</title>
+</head>
+<body style="font-family: system-ui;font-size: 1.2rem; color: #222;">
+    <img src="pretty-logo.svg">
+    <h1>
+        Hello World!</h1>
+    <small>
+        This page was create with a <a href="https://www.npmjs.com/package/pretty-markup">
+            Pretty Markup</a>
+    </small>
+    <h2>
+        Usage</h2>
+    <p>
+        Pretty Markup carry the same aspects of the traditional HTML document,
+        except the use of characters, that sometimes, can make the document
+        ugly to declare markups.</p>
+    <div class="code-example">
+        <p>Hello world!</p>
+    </div>
+    <p>
+        With Pretty Markup, It's more clear to understand what's going on. &#128516</p>
+    <div class="code-example">
+        p 'Hello world!' /p</div>
+</body>
 </html>
 ```
 
 ## Pretty Markup
 
 ```pretty-markup
-html lang="en"
+html
     head
-        meta description="This is a page made with htmlpp!"
-        style href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        style href="css/index.css"
-    closehead
-    body class="bg-dark"
-        main class="container pt-1"
-            div class="row"
-                div class="col text-white"
-                    h1 $hero closeh1
-                /div
-            /div
-            div class="row text-white"
-                p class='p-1'
-                    $description br $concat
-                /p
-                div class="col"
-                    p id='about'
-                        $about
-                    /p
-                /div
-            /div
-            div class="row bg-white"
-                p
-                    "To write text without variables use quotes. "
-                    'Single quotes or normal quotes'
-                /p
-            /div
-        /main
+        title "Pretty Markup File!" /title
+    /head
+    body style="font-family: system-ui;font-size: 1.2rem; color: #222;"
+        img src="pretty-logo.svg"
+        h1 "Hello World!" /h1
+        small "This page was create with a " a href="https://www.npmjs.com/package/pretty-markup" 
+        "Pretty Markup" /a
+        /small
+
+        h2 "Usage" /h2
+        p 
+            "Pretty Markup carry the same aspects of the traditional HTML document, 
+            except the use of characters, that sometimes, can make the document
+            ugly to declare markups." 
+        /p
+
+        div class="code-example"
+           "<p>Hello world!</p>"
+        /div
+
+        p 
+            "With Pretty Markup, It's more clear to understand what's going on. &#128516"
+        /p
+        
+        div class="code-example"
+            "p 'Hello world!' /p"
+        /div
     /body
 /html
 ```
+
+# Get started
+
+To start developing with Pretty Markup, create a folder called __src__ at the root of your project. After that, just start creating your files with the extension __.pm__.
+- index.pm
+
+To compile the files with the comand pm, you have to install it globally.
+> npm i -g pretty-markup
 
 ## Syntax Highlighter Available!
 - You can still use the highlighter of htmlpp. 
 
 On [Visual Code Editor]("https://code.visualstudio.com/") you can search for HTMLPP and install the extension and enjoy it!
 
-> ext install mopires-htmlpp.htmlpp
+> ## ext install mopires-htmlpp.htmlpp
 
 - In the future this extension will be also updated.
-
-# That is it!
-
-### Thank you
 
 You can keep posted by following <a href='https://twitter.com/_mopires'>@_mopires</a> on twitter and <a href='https://github.com/mopires'>@mopires</a> on github.

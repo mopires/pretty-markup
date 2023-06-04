@@ -2,7 +2,7 @@
   "name": "pretty-markup",
   "version": "1.0.0",
   "description": "",
-  "main": "pretty-markup.js",
+  "main": "Main.js",
   "bin": {
     "pm": "./Main.js"
   },
