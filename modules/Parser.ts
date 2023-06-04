@@ -96,6 +96,7 @@ class Parser {
     createElement(element: Element) {
         let tag = "";
         if (element.Symbol !== "!DOCTYPE") {
+            this.elementHasLinkedFiles(element);
             let attributes = element.attr !== undefined ? element.attr.join(" ") : "";
             tag = "<" + element.Symbol + " " + attributes + ">" + os.EOL;
             return tag;
@@ -111,6 +112,16 @@ class Parser {
         return build;
     }
 
+    elementHasLinkedFiles (element: Element) {
+        if (element.attr !== undefined) {
+            if (element.Symbol, element.attr.toString().indexOf("src") > -1){
+                this.getLinkedFilePath(element.attr);
+            }
+            return element.attr.join(" ")
+        } else {
+            return "";
+        }
+    }
 
 }
 
