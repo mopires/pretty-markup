@@ -1,0 +1,8 @@
+node_modules
+src/*.*
+*.ts
+modules/*.ts
+interface/*.ts
+public
+*.svg
+tsconfig.json

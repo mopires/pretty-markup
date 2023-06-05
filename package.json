@@ -1,6 +1,6 @@
 {
   "name": "pretty-markup",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "Main.js",
   "bin": {
@@ -23,6 +23,7 @@
     "frontend development",
     "scss"
   ],
+  "repository": "https://github.com/mopires/pretty-markup",
   "devDependencies": {
     "@types/node": "^20.2.5",
     "chalk": "^4.1.0",
