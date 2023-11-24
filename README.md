@@ -1,11 +1,8 @@
 ![pretty-logo.svg](https://github.com/mopires/pretty-markup/blob/main/pretty-logo.svg)
 
-
-If you came here from <a href="https://www.npmjs.com/package/htmlpp-com-github-mopires">HTMLPP</a>, there is good news for you! Pretty Markup is the production version of HTMLPP. Soon enough this package will be available to use.
+## Pretty Markup is a HTML __preprocessor__ that make it more semantic to write html. The concept remains the same, but without the "< > </>", like Sass, but different. You can see this as a super set of HTML, like TypeScript. 
 
 > You can keep posted by following <a href='https://twitter.com/_mopires'>@_mopires</a> on twitter and <a href='https://github.com/mopires'>@mopires</a> on github.
-
-Pretty Markup is a HTML __preprocessor__ that make it more semantic to write html. The concept remains the same, but without the "< > </>", like Sass, but different. You can see this as a super set of HTML, like TypeScript. 
 
 > # npm i -g pretty-markup
 
@@ -16,7 +13,8 @@ Pretty Markup is a HTML __preprocessor__ that make it more semantic to write htm
 <html>
 <head>
     <title>
-        Pretty Markup File!</title>
+        Pretty Markup File!
+    </title>
 </head>
 <body style="font-family: system-ui;font-size: 1.2rem; color: #222;">
     <img src="pretty-logo.svg">
@@ -38,7 +36,8 @@ Pretty Markup is a HTML __preprocessor__ that make it more semantic to write htm
     <p>
         With Pretty Markup, It's more clear to understand what's going on. &#128516</p>
     <div class="code-example">
-        p 'Hello world!' /p</div>
+        p 'Hello world!' /p
+    </div>
 </body>
 </html>
 ```
@@ -73,7 +72,8 @@ html
         /p
         
         div class="code-example"
-            "p 'Hello world!' /p"
+            "p 'Hello world!' 
+        /p"
         /div
     /body
 /html
@@ -88,7 +88,7 @@ To compile the files with the comand pm, you have to install it globally.
 > npm i -g pretty-markup
 
 ## Syntax Highlighter Available!
-- You can still use the highlighter of htmlpp. 
+- You can still use the highlighter of htmlpp (Previous version of this package). 
 
 On [Visual Code Editor]("https://code.visualstudio.com/") you can search for HTMLPP and install the extension and enjoy it!
 
