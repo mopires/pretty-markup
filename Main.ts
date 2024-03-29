@@ -1,19 +1,16 @@
 #!/usr/bin/env node
-import FileManager from "./modules/FileManager";
-import Tokenizer from "./modules/Tokenizer";
-
+import FileManager from './modules/FileManager';
+import Tokenizer from './modules/Tokenizer';
 
 class Main {
+  constructor() {
+    this.Start();
+  }
 
-    constructor () {
-        this.Start();
-    }
-
-    Start () {
-        let fileManager: FileManager = new FileManager();
-        let files: Array<object> = fileManager.GetFiles();
-        fileManager.ReadPrettyFile(files);
-    }
-
+  Start() {
+    let fileManager: FileManager = new FileManager();
+    let files: Array<object> = fileManager.GetFiles();
+    fileManager.ReadPrettyFile(files);
+  }
 }
-new Main(); 
+new Main();

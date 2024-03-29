@@ -1,25 +1,26 @@
 {
   "name": "pretty-markup",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "Main.js",
   "bin": {
     "pm": "./Main.js"
   },
-  "author": "Matheus Pires",
+  "scripts": {
+    "dev": "prettier --config .prettierrc './**/*.ts' --w  && tsc Main.ts"
+  },
+  "author": "Matheus Pires; mopires23@gmail.com",
   "license": "ISC",
   "keywords": [
     "frontend",
     "css",
     "html",
-    "bootstrap",
     "sass",
     "preprocessor",
     "style",
     "clean code",
     "design",
     "html5",
-    "transpiler",
     "frontend development",
     "scss"
   ],
@@ -30,6 +31,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "prettier": "^3.2.5"
   }
 }

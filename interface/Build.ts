@@ -1,4 +1,4 @@
 export default interface Build {
-    LinkedFiles: Array<object>,
-    htmlCompiled: string
+  LinkedFiles: Array<object>;
+  htmlCompiled: string;
 }

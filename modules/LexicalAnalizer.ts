@@ -1,5 +1,1 @@
-
-
-class Lex {
-    
-}
+class Lex {}
