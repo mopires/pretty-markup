@@ -1,9 +1,9 @@
-import chalk = require('chalk');
+import chalk from 'chalk';
 import { log } from 'console';
 import FileManager from './FileManager';
 import Element from '../interface/Element';
 
-let os = require('os');
+import os from 'os';
 
 class Tokenizer {
   fileManager = new FileManager();
@@ -243,7 +243,7 @@ class Tokenizer {
   variablesExist(variable: string | number) {
     variable = variable.toString().trim().replace('$', '');
     let variable_file = JSON.parse(
-      this.fileManager.readFile(process.cwd() + '/src/var.json')
+      this.fileManager.readFile(`${process.cwd()}/src_dev/var.json`)!.toString()
     );
 
     if (!variable_file[variable]) {
@@ -259,7 +259,7 @@ class Tokenizer {
   GetVariableValue(variable: string) {
     variable = variable.toString().trim().replace('$', '');
     let variable_file = JSON.parse(
-      this.fileManager.readFile(process.cwd() + '/src/var.json')
+      this.fileManager.readFile(`${process.cwd()}/src_dev/var.json`)!.toString()
     );
 
     return variable_file[variable].toString();

@@ -2,9 +2,9 @@ import Tokenizer from './Tokenizer';
 import Element from '../interface/Element';
 import Build from '../interface/Build';
 import { log } from 'console';
-const os = require('os'),
-  chalk = require('chalk'),
-  fs = require('fs');
+import os from 'os';
+import chalk from 'chalk';
+import fs from 'fs';
 
 class Parser {
   linkedFiles: Array<object> = [];

@@ -1,14 +1,14 @@
+import path from 'path';
+import fs from 'fs';
 import Tokenizer from './Tokenizer';
 import Parser from './Parser';
 import Build from '../interface/Build';
-import path = require('path');
-const fs = require('fs');
 
-class FileManager {
+export default class FileManager {
   constructor() {}
 
   GetFiles(
-    subfolder: string = process.cwd() + '/src/',
+    subfolder: string = process.cwd() + '/src_dev/',
     prettyMarkupFiles: Array<object> = []
   ) {
     let folders;
@@ -58,7 +58,7 @@ class FileManager {
     return file.replace('.pm', '.html');
   }
 
-  readFile(File: string) {
+  readFile(File: string): string | undefined {
     try {
       const file_content = fs.readFileSync(File, { encoding: 'utf8' });
       return file_content;
@@ -72,11 +72,8 @@ class FileManager {
       fs.mkdirSync('./public');
     }
     fs.writeFileSync(
-      File.path.replace('src', 'public') + this.swipeExtension(File.name),
-      build.htmlCompiled,
-      (e: any) => {
-        if (e) throw e;
-      }
+      File.path.replace('src_dev', 'public') + this.swipeExtension(File.name),
+      build.htmlCompiled
     );
     this.copyFilesToBuildFolder(build.LinkedFiles);
   }
@@ -92,5 +89,3 @@ class FileManager {
     });
   }
 }
-
-export default FileManager;

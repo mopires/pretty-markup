@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import FileManager from './modules/FileManager';
-import Tokenizer from './modules/Tokenizer';
 
 class Main {
   constructor() {
