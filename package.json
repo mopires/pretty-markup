@@ -27,7 +27,9 @@
   "repository": "https://github.com/mopires/pretty-markup",
   "devDependencies": {
     "@types/node": "^20.2.5",
+    "@types/pretty": "^2.0.3",
     "chalk": "^4.1.0",
+    "pretty": "^2.0.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {

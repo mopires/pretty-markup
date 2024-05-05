@@ -37,7 +37,7 @@ export default class FileManager {
     prettyMarkupFiles.forEach((file: any): void => {
       var FileContent = fs.readFileSync(file.path + file.name, 'utf-8');
       let parser = new Parser(new Tokenizer(FileContent, file));
-      let build: Build = parser.compile(); //pretty(parser.compile());
+      let build: Build = parser.compile();
       this.WriteHTML(build, file);
     });
   }

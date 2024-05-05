@@ -5,6 +5,7 @@ import { log } from 'console';
 import os from 'os';
 import chalk from 'chalk';
 import fs from 'fs';
+import pretty from 'pretty';
 
 class Parser {
   linkedFiles: Array<object> = [];
@@ -122,7 +123,7 @@ class Parser {
           : this.createElement(element);
     });
     let build: Build = {
-      htmlCompiled: this.htmlCompiled,
+      htmlCompiled: pretty(this.htmlCompiled),
       LinkedFiles: this.linkedFiles
     };
     return build;
