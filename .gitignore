@@ -1,4 +1,5 @@
 node_modules
 src_dev/*.*
+src_dev/**/*.*
 *.js
 public

@@ -3,12 +3,19 @@ import fs from 'fs';
 import Tokenizer from './Tokenizer';
 import Parser from './Parser';
 import Build from '../interface/Build';
+import { log } from 'console';
+import IFile from '../interface/File';
 
 export default class FileManager {
-  constructor() {}
+  private srcFolder = '/src/';
+
+  constructor() {
+    const env = Array.from(process.cwd());
+    this.srcFolder = env.includes('node_modules') ? 'src' : 'src_dev';
+  }
 
   GetFiles(
-    subfolder: string = process.cwd() + '/src_dev/',
+    subfolder: string = `${process.cwd()}/${this.srcFolder}/`,
     prettyMarkupFiles: Array<object> = []
   ) {
     let folders;
@@ -67,12 +74,20 @@ export default class FileManager {
     }
   }
 
-  private WriteHTML(build: Build, File: any) {
+  private WriteHTML(build: Build, File: IFile) {
+    let fileBuild: IFile = File;
+    fileBuild.path = File.path.replace(this.srcFolder, 'public');
+
     if (!fs.existsSync('./public')) {
       fs.mkdirSync('./public');
     }
+    
+    if (!fs.existsSync(fileBuild.path)) {
+      fs.mkdirSync(fileBuild.path);
+    }
+    
     fs.writeFileSync(
-      File.path.replace('src_dev', 'public') + this.swipeExtension(File.name),
+      `${File.path.replace(this.srcFolder, 'public')}${this.swipeExtension(File.name)}`,
       build.htmlCompiled
     );
     this.copyFilesToBuildFolder(build.LinkedFiles);

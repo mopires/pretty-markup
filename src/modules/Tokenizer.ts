@@ -6,16 +6,19 @@ import Element from '../interface/Element';
 import os from 'os';
 
 class Tokenizer {
-  fileManager = new FileManager();
+  private fileManager = new FileManager();
   syntaxExpression: Array<Element> = [];
-  line = 0;
-  char_buffer = '';
-  column = 0;
-  parent_symbol = '';
-  token_id: any = '';
+  private line = 0;
+  private char_buffer = '';
+  private column = 0;
+  private parent_symbol = '';
+  private token_id: any = '';
+  private srcFolder = '';
 
   constructor(FileContent: string, File: any) {
     this.GetTokens(FileContent, File);
+    const env = Array.from(process.cwd());
+    this.srcFolder = env.includes('node_modules') ? 'src' : 'src_dev';
   }
 
   private GetTokens(FileContent: string, file: any) {
@@ -243,7 +246,9 @@ class Tokenizer {
   variablesExist(variable: string | number) {
     variable = variable.toString().trim().replace('$', '');
     let variable_file = JSON.parse(
-      this.fileManager.readFile(`${process.cwd()}/src_dev/var.json`)!.toString()
+      this.fileManager
+        .readFile(`${process.cwd()}/${this.srcFolder}/var.json`)!
+        .toString()
     );
 
     if (!variable_file[variable]) {
@@ -259,7 +264,9 @@ class Tokenizer {
   GetVariableValue(variable: string) {
     variable = variable.toString().trim().replace('$', '');
     let variable_file = JSON.parse(
-      this.fileManager.readFile(`${process.cwd()}/src_dev/var.json`)!.toString()
+      this.fileManager
+        .readFile(`${process.cwd()}/${this.srcFolder}/var.json`)!
+        .toString()
     );
 
     return variable_file[variable].toString();
