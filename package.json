@@ -1,13 +1,14 @@
 {
   "name": "pretty-markup",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "./src/Main.js",
   "bin": {
     "pm": "./src/Main.js"
   },
   "scripts": {
-    "dev": "prettier --config .prettierrc './**/*.ts' --w  && tsc"
+    "dev": "prettier --config .prettierrc './**/*.ts' --w && tsc && node ./src/config/dev.js",
+    "build": "prettier --config .prettierrc './**/*.ts' --w && tsc && node ./src/config/build.js"
   },
   "author": "Matheus Pires; mopires23@gmail.com",
   "license": "ISC",

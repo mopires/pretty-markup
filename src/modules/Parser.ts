@@ -6,14 +6,18 @@ import os from 'os';
 import chalk from 'chalk';
 import fs from 'fs';
 import pretty from 'pretty';
+import * as config from '../config/env.json';
 
 class Parser {
   linkedFiles: Array<object> = [];
   htmlCompiled: string = '<!DOCTYPE html>';
   prettyMarkup: Array<Element> = [];
+  private srcFolder = '/src/';
 
   constructor(SyntaxExpression: Tokenizer) {
     this.prettyMarkup = SyntaxExpression.syntaxExpression;
+    const env = Array.from(process.cwd());
+    this.srcFolder = config.build.production ? 'src' : 'src_dev';
   }
 
   processFeature(element: Element) {
@@ -63,17 +67,14 @@ class Parser {
   }
 
   getLinkedFilePath(linked_file: any) {
-    let path_pretty =
-      process.cwd() +
-      '/src/' +
-      linked_file[0]
-        .replace('href', '')
-        .replace('src', '')
-        .replace('=', '')
-        .replace('"', '')
-        .replace('"', '')
-        .replace("'", '')
-        .replace("'", '');
+    let path_pretty = `${process.cwd()}/${this.srcFolder}/${linked_file[0]
+      .replace('href', '')
+      .replace('src', '')
+      .replace('=', '')
+      .replace('"', '')
+      .replace('"', '')
+      .replace("'", '')
+      .replace("'", '')}`;
     let path_for_build =
       process.cwd() +
       '/public/' +

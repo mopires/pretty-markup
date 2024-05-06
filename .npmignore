@@ -3,6 +3,8 @@ node_modules
 src/*.ts
 src/modules/*.ts
 src/interface/*.ts
+src/config/*.ts
+src/config/*.js
 public
 src_dev
 *.svg

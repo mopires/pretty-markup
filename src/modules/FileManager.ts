@@ -3,15 +3,15 @@ import fs from 'fs';
 import Tokenizer from './Tokenizer';
 import Parser from './Parser';
 import Build from '../interface/Build';
-import { log } from 'console';
 import IFile from '../interface/File';
+import * as config from '../config/env.json';
 
 export default class FileManager {
   private srcFolder = '/src/';
 
   constructor() {
     const env = Array.from(process.cwd());
-    this.srcFolder = env.includes('node_modules') ? 'src' : 'src_dev';
+    this.srcFolder = config.build.production ? 'src' : 'src_dev';
   }
 
   GetFiles(
@@ -81,11 +81,11 @@ export default class FileManager {
     if (!fs.existsSync('./public')) {
       fs.mkdirSync('./public');
     }
-    
+
     if (!fs.existsSync(fileBuild.path)) {
       fs.mkdirSync(fileBuild.path);
     }
-    
+
     fs.writeFileSync(
       `${File.path.replace(this.srcFolder, 'public')}${this.swipeExtension(File.name)}`,
       build.htmlCompiled
