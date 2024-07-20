@@ -11,26 +11,28 @@ Imagine crafting elegant, semantic HTML structures without the clutter of angle 
 
 ![Pretty Markup](./assets/gif/intellisense.gif)
 
-# Get started
+# Get started 🤔
 To start developing with Pretty Markup, create a folder called __src__ at the root of your project. After that, just start creating your pretty files with the extension `.pm`.
 
-`index.pm`
+```bash
+  index.pm
+```
 
-# Compile
+# Compile ⚙️
 To compile with CLI you can install it globally.
 
-## Official syntax highlighter
+## Official syntax highlighter ❤️‍🔥
 - Pretty Markup Language Basics is available to installation on vscode [VS code]("https://code.visualstudio.com/") you can search for `Pretty Markup` and install the extension.
 
 ```bash
 ext install mopires.pretty-markup
 ```
 
-## How to Contribute
+## How to Contribute 🙏🏻
 We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for details on how you can help improve the project.
 
-## 🔧 Issues and improvements
-Report bugs or improvements at https://github.com/mopires/pretty-markup-language-basics/issues
+## Issues and improvements 🔧
+Report bugs or improvements at https://github.com/mopires/pretty-markup/issues
 
-## License
+## License ⚖️
 This project is licensed under the [MIT License](LICENSE.txt).
