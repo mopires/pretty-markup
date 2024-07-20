@@ -20,6 +20,14 @@ To start developing with Pretty Markup, create a folder called __src__ at the ro
 
 # Compile ⚙️
 To compile with CLI you can install it globally.
+```bash
+  npm i pretty-markup -g
+```
+And then
+```bash
+  pm 
+```
+To compile it.
 
 ## Official syntax highlighter ❤️‍🔥
 - Pretty Markup Language Basics is available to installation on vscode [VS code]("https://code.visualstudio.com/") you can search for `Pretty Markup` and install the extension.
