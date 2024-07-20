@@ -1,24 +1,24 @@
-import chalk from 'chalk';
-import { log } from 'console';
-import FileManager from './FileManager';
-import Element from '../interface/Element';
+import chalk from "chalk";
+import { log } from "console";
+import FileManager from "./FileManager";
+import Element from "../interface/Element";
 
-import os from 'os';
+import os from "os";
 
 class Tokenizer {
   private fileManager = new FileManager();
   syntaxExpression: Array<Element> = [];
   private line = 0;
-  private char_buffer = '';
+  private char_buffer = "";
   private column = 0;
-  private parent_symbol = '';
-  private token_id: any = '';
-  private srcFolder = '';
+  private parent_symbol = "";
+  private token_id: any = "";
+  private srcFolder = "";
 
   constructor(FileContent: string, File: any) {
     this.GetTokens(FileContent, File);
     const env = Array.from(process.cwd());
-    this.srcFolder = env.includes('node_modules') ? 'src' : 'src_dev';
+    this.srcFolder = env.includes("node_modules") ? "src" : "src_dev";
   }
 
   private GetTokens(FileContent: string, file: any) {
@@ -30,8 +30,8 @@ class Tokenizer {
 
     while (this.column < FileContent.length) {
       switch (FileContent[this.column]) {
-        case '/':
-          if (FileContent[this.column + 1] === '/') {
+        case "/":
+          if (FileContent[this.column + 1] === "/") {
             let comment = FileContent[this.column];
             while (true) {
               this.nextColumn();
@@ -52,7 +52,7 @@ class Tokenizer {
             this.nextColumn();
           }
           break;
-        case ' ':
+        case " ":
           if (this.char_buffer.length > 0) {
             this.token_id = tokenId(this.char_buffer);
             this.syntaxExpression.push({
@@ -60,22 +60,22 @@ class Tokenizer {
               Column: this.column,
               Line: this.line
             });
-            this.char_buffer = '';
+            this.char_buffer = "";
           }
           this.nextColumn();
           break;
-        case '\n':
+        case "\n":
           this.line = this.line + 1;
           if (this.char_buffer.length > 0) {
-            if (this.char_buffer.match('close') === null) {
+            if (this.char_buffer.match("close") === null) {
               this.syntaxExpression.push({
                 Symbol: this.char_buffer,
                 Column: this.column,
                 Line: this.line
               });
-              this.char_buffer = '';
+              this.char_buffer = "";
             } else {
-              let close_tag = this.char_buffer.split('close')[1];
+              let close_tag = this.char_buffer.split("close")[1];
               this.syntaxExpression.forEach((element) => {
                 if (element.Symbol !== undefined) {
                   if (element.Symbol == close_tag) {
@@ -88,23 +88,23 @@ class Tokenizer {
                 Column: this.column,
                 Line: this.line
               });
-              this.char_buffer = '';
+              this.char_buffer = "";
             }
           }
           this.nextColumn();
           break;
-        case '\r':
+        case "\r":
           this.line = this.line + 1;
           if (this.char_buffer.length > 0) {
-            if (this.char_buffer.match('close') === null) {
+            if (this.char_buffer.match("close") === null) {
               this.syntaxExpression.push({
                 Symbol: this.char_buffer,
                 Column: this.column,
                 Line: this.line
               });
-              this.char_buffer = '';
+              this.char_buffer = "";
             } else {
-              let close_tag = this.char_buffer.split('close')[1];
+              let close_tag = this.char_buffer.split("close")[1];
               this.syntaxExpression.forEach((element) => {
                 if (element.Symbol !== undefined) {
                   if (element.Symbol == close_tag) {
@@ -117,12 +117,12 @@ class Tokenizer {
                 Column: this.column,
                 Line: this.line
               });
-              this.char_buffer = '';
+              this.char_buffer = "";
             }
           }
           this.nextColumn();
           break;
-        case '=':
+        case "=":
           this.getAttribute(FileContent);
           this.nextColumn();
           break;
@@ -138,7 +138,7 @@ class Tokenizer {
           }
           this.token_id = tokenId(this.char_buffer);
           this.syntaxExpression.push({
-            Symbol: 'single_quotes',
+            Symbol: "single_quotes",
             String: single_quotes_content,
             Column: this.column
           });
@@ -155,23 +155,23 @@ class Tokenizer {
           }
           this.token_id = tokenId(this.char_buffer);
           this.syntaxExpression.push({
-            Symbol: 'quotes',
+            Symbol: "quotes",
             String: quotes_content,
             Column: this.column
           });
           this.parent_symbol = this.token_id;
           this.nextColumn();
           break;
-        case '$':
+        case "$":
           let $var = FileContent[this.column];
           let column_backup = this.column;
           while (true) {
             this.nextColumn();
             $var = $var + FileContent[this.column];
             if (
-              FileContent[this.column] === ' ' ||
-              FileContent[this.column] === '\r' ||
-              FileContent[this.column] === '\n'
+              FileContent[this.column] === " " ||
+              FileContent[this.column] === "\r" ||
+              FileContent[this.column] === "\n"
             ) {
               break;
             } else if (
@@ -187,7 +187,7 @@ class Tokenizer {
           }
           if (this.variablesExist($var)) {
             this.syntaxExpression.push({
-              Symbol: '$',
+              Symbol: "$",
               FreeText: this.GetVariableValue($var),
               Column: this.column,
               Line: this.line
@@ -204,7 +204,7 @@ class Tokenizer {
               Column: this.column,
               Line: this.line
             });
-            this.char_buffer = '';
+            this.char_buffer = "";
           }
           this.nextColumn();
           break;
@@ -237,14 +237,14 @@ class Tokenizer {
         this.syntaxExpression[this.syntaxExpression.length - 1].attr = [];
       }
       this.syntaxExpression[this.syntaxExpression.length - 1].attr?.push(
-        this.char_buffer + '=' + value
+        this.char_buffer + "=" + value
       );
-      this.char_buffer = '';
+      this.char_buffer = "";
     }
   }
 
   variablesExist(variable: string | number) {
-    variable = variable.toString().trim().replace('$', '');
+    variable = variable.toString().trim().replace("$", "");
     let variable_file = JSON.parse(
       this.fileManager
         .readFile(`${process.cwd()}/${this.srcFolder}/var.json`)!
@@ -262,7 +262,7 @@ class Tokenizer {
   }
 
   GetVariableValue(variable: string) {
-    variable = variable.toString().trim().replace('$', '');
+    variable = variable.toString().trim().replace("$", "");
     let variable_file = JSON.parse(
       this.fileManager
         .readFile(`${process.cwd()}/${this.srcFolder}/var.json`)!

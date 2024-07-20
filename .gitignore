@@ -3,3 +3,4 @@ src_dev/*.*
 src_dev/**/*.*
 *.js
 public
+src/config/env.json

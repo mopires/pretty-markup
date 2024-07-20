@@ -1,17 +1,17 @@
-import path from 'path';
-import fs from 'fs';
-import Tokenizer from './Tokenizer';
-import Parser from './Parser';
-import Build from '../interface/Build';
-import IFile from '../interface/File';
-import * as config from '../config/env.json';
+import path from "path";
+import fs from "fs";
+import Tokenizer from "./Tokenizer";
+import Parser from "./Parser";
+import Build from "../interface/Build";
+import IFile from "../interface/File";
+import * as config from "../config/env.json";
 
 export default class FileManager {
-  private srcFolder = '/src/';
+  private srcFolder = "/src/";
 
   constructor() {
     const env = Array.from(process.cwd());
-    this.srcFolder = config.build.production ? 'src' : 'src_dev';
+    this.srcFolder = config.build.production ? "src" : "src_dev";
   }
 
   GetFiles(
@@ -26,12 +26,12 @@ export default class FileManager {
         if (this.isPrettyFile(folder)) {
           prettyMarkupFiles.push({
             name: folder,
-            path: path.replace('./', '')
+            path: path.replace("./", "")
           });
         }
       } else {
         if (!this.isReservedFolder(folder)) {
-          folder = path + folder + '/';
+          folder = path + folder + "/";
           prettyMarkupFiles = this.GetFiles(folder, prettyMarkupFiles);
         }
       }
@@ -42,7 +42,7 @@ export default class FileManager {
 
   ReadPrettyFile(prettyMarkupFiles: Array<object>): void {
     prettyMarkupFiles.forEach((file: any): void => {
-      var FileContent = fs.readFileSync(file.path + file.name, 'utf-8');
+      var FileContent = fs.readFileSync(file.path + file.name, "utf-8");
       let parser = new Parser(new Tokenizer(FileContent, file));
       let build: Build = parser.compile();
       this.WriteHTML(build, file);
@@ -50,24 +50,24 @@ export default class FileManager {
   }
 
   private isReservedFolder(folder: string) {
-    let protectedDir = ['.git', '.github', '.idea', 'public', 'node_modules'];
+    let protectedDir = [".git", ".github", ".idea", "public", "node_modules"];
     return protectedDir.indexOf(folder) !== -1;
   }
 
   private isPrettyFile(file: string) {
-    let fileExtension = file.split('.')[file.split('.').length - 1];
-    if (fileExtension === 'pm') {
+    let fileExtension = file.split(".")[file.split(".").length - 1];
+    if (fileExtension === "pm") {
       return true;
     }
   }
 
   private swipeExtension(file: string) {
-    return file.replace('.pm', '.html');
+    return file.replace(".pm", ".html");
   }
 
   readFile(File: string): string | undefined {
     try {
-      const file_content = fs.readFileSync(File, { encoding: 'utf8' });
+      const file_content = fs.readFileSync(File, { encoding: "utf8" });
       return file_content;
     } catch (err) {
       console.error(err);
@@ -76,10 +76,10 @@ export default class FileManager {
 
   private WriteHTML(build: Build, File: IFile) {
     let fileBuild: IFile = File;
-    fileBuild.path = File.path.replace(this.srcFolder, 'public');
+    fileBuild.path = File.path.replace(this.srcFolder, "public");
 
-    if (!fs.existsSync('./public')) {
-      fs.mkdirSync('./public');
+    if (!fs.existsSync("./public")) {
+      fs.mkdirSync("./public");
     }
 
     if (!fs.existsSync(fileBuild.path)) {
@@ -87,7 +87,7 @@ export default class FileManager {
     }
 
     fs.writeFileSync(
-      `${File.path.replace(this.srcFolder, 'public')}${this.swipeExtension(File.name)}`,
+      `${File.path.replace(this.srcFolder, "public")}${this.swipeExtension(File.name)}`,
       build.htmlCompiled
     );
     this.copyFilesToBuildFolder(build.LinkedFiles);

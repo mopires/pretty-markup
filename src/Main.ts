@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import FileManager from './modules/FileManager';
+import FileManager from "./modules/FileManager";
 
 class Main {
   constructor() {

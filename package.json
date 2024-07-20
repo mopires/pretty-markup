@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "prettier --config .prettierrc ./src --write && tsc && node ./src/config/dev.js",
-    "build": "prettier --config .prettierrc ./src --write && tsc && node ./src/config/build.js"
+    "build": "prettier --config .prettierrc ./src --write && tsc && node ./src/config/build.js && npm run lint",
+    "lint": "npx eslint ./src"
   },
   "author": "Matheus Pires; mopires23@gmail.com",
   "license": "MIT",
@@ -27,11 +28,15 @@
   ],
   "repository": "https://github.com/mopires/pretty-markup",
   "devDependencies": {
+    "@eslint/js": "^9.7.0",
     "@types/node": "^20.2.5",
     "@types/pretty": "^2.0.3",
     "chalk": "^4.1.0",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0",
     "pretty": "^2.0.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "typescript-eslint": "^7.16.1"
   },
   "dependencies": {
     "chalk": "^4.1.0",
