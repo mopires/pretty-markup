@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "prettier --config .prettierrc ./src --write && tsc && node ./src/config/dev.js",
-    "build": "prettier --config .prettierrc ./src --w && tsc && node ./src/config/build.js"
+    "build": "prettier --config .prettierrc ./src --write && tsc && node ./src/config/build.js"
   },
   "author": "Matheus Pires; mopires23@gmail.com",
   "license": "ISC",
