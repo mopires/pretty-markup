@@ -1,7 +1,7 @@
 {
   "name": "pretty-markup",
-  "version": "1.0.7",
-  "description": "",
+  "version": "1.0.8",
+  "description": "Imagine crafting elegant, semantic HTML structures without the clutter of angle brackets. Pretty Markup, a revolutionary preprocessor like Sass for CSS or TypeScript for JavaScript, Pretty Markup takes HTML to the next level.",
   "main": "./src/Main.js",
   "bin": {
     "pm": "./src/Main.js"
@@ -11,7 +11,7 @@
     "build": "prettier --config .prettierrc ./src --write && tsc && node ./src/config/build.js"
   },
   "author": "Matheus Pires; mopires23@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "frontend",
     "css",
