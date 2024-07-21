@@ -1,5 +1,5 @@
 
-## Pretty Markup: Write HTML Like Poetry (But for the Web!)
+## Pretty Markup: Write HTML Like Poetry
 
 Imagine crafting elegant, semantic HTML structures without the clutter of angle brackets. Pretty Markup, a revolutionary preprocessor like Sass for CSS or TypeScript for JavaScript, Pretty Markup takes HTML to the next level.
 
@@ -12,11 +12,24 @@ Imagine crafting elegant, semantic HTML structures without the clutter of angle 
 ![Pretty Markup](./assets/gif/intellisense.gif)
 
 # Get started 🤔
-To start developing with Pretty Markup, create a folder called __src__ at the root of your project. After that, just start creating your pretty files with the extension `.pm`.
+To start developing with Pretty Markup, create a folder called __src__ at the root of your project. After that, just start creating your pretty files with the extension `.pm`. 
 
 ```bash
   index.pm
 ```
+
+Every HTML tag is supported here. Although, no attribute has default values. For example, the default value of the attribute `checked` in traditional HTML is true. Pretty Markup **does not** set any value to it. You have to specify it.
+
+For example:
+```html
+  <input type="checkbox" checked/>
+```
+
+```pretty-markup
+  input type="checkbox" checked="true"
+```
+
+https://w3schools.com has excellent HTML reference that can be used in Pretty Markup.
 
 # Compile ⚙️
 To compile with CLI you can install it globally.
@@ -30,10 +43,10 @@ And then
 To compile it.
 
 ## Official syntax highlighter ❤️‍🔥
-- Pretty Markup Language Basics is available to installation on vscode [VS code]("https://code.visualstudio.com/") you can search for `Pretty Markup` and install the extension.
+- Pretty Markup Language Basics is available to installation on vscode [VS code]("https://code.visualstudio.com/") you can search for `Pretty Markup` and install the extension. Open VSCode and type ctrl+P, type this:
 
 ```bash
-ext install mopires.pretty-markup
+  ext install mopires.pretty-markup
 ```
 
 ## How to Contribute 🙏🏻
