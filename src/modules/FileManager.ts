@@ -10,7 +10,6 @@ export default class FileManager {
   private srcFolder = "/src/";
 
   constructor() {
-    const env = Array.from(process.cwd());
     this.srcFolder = config.build.production ? "src" : "src_dev";
   }
 
@@ -21,6 +20,7 @@ export default class FileManager {
     let folders;
     let path = subfolder;
     folders = fs.readdirSync(path);
+    console.log(folders);
     folders.forEach((folder: string): void => {
       if (!fs.statSync(path + folder).isDirectory()) {
         if (this.isPrettyFile(folder)) {
