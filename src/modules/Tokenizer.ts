@@ -15,13 +15,23 @@ class Tokenizer {
   private token_id: any = "";
   private srcFolder = "";
 
-  constructor(FileContent: string, File: any) {
-    this.GetTokens(FileContent, File);
+  /**
+   * Tokenizer contructor
+   * @param FileContent
+   * @param File
+   */
+  constructor(FileContent: string) {
+    this.GetTokens(FileContent);
     const env = Array.from(process.cwd());
     this.srcFolder = env.includes("node_modules") ? "src" : "src_dev";
   }
-
-  private GetTokens(FileContent: string, file: any) {
+  /**
+   *
+   * @param FileContent string
+   * @param file any
+   * @returns syntaxExpression: Array<Element>
+   */
+  private GetTokens(FileContent: string) {
     function tokenId(token_name: any) {
       return token_name + Math.floor(Math.random() * 10000);
     }

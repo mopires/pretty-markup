@@ -8,6 +8,7 @@ Imagine crafting elegant, semantic HTML structures without the clutter of angle 
 * **Goodbye `< >`, Hello Readability:** Pretty Markup reimagines HTML syntax, potentially using a more natural language-like approach. This could make writing HTML a breeze, boosting developer productivity.
 * **Semantic Powerhouse:**  Focus on the meaning of your content, not just its presentation. Pretty Markup encourage semantic best practices, ensuring your HTML is not only beautiful but also machine-readable.
 * **A Superset of HTML?**  Think of it as a layer on top of regular HTML. Write clean, concise code in Pretty Markup, and it seamlessly translates into standard, browser-compatible HTML under the hood. It represents a potential future where writing HTML is an expressive and enjoyable experience.
+* **Every tag is supported:**
 
 ![Pretty Markup](./assets/gif/intellisense.gif)
 
@@ -29,7 +30,7 @@ For example:
   input type="checkbox" checked="true"
 ```
 
-https://w3schools.com has excellent HTML reference that can be used in Pretty Markup.
+https://w3schools.com have excellent HTML reference that can be used in Pretty Markup.
 
 # Compile ⚙️
 To compile with CLI you can install it globally.
@@ -43,7 +44,7 @@ And then
 To compile it.
 
 ## Official syntax highlighter ❤️‍🔥
-- Pretty Markup Language Basics is available to installation on vscode [VS code]("https://code.visualstudio.com/") you can search for `Pretty Markup` and install the extension. Open VSCode and type ctrl+P, type this:
+- Pretty Markup Language Basics is available to installation on [VS code]("https://marketplace.visualstudio.com/items?itemName=mopires.pretty-markup-language-basics") you can search for `Pretty Markup` and install the extension. Open VSCode and type ctrl+P, type this:
 
 ```bash
   ext install mopires.pretty-markup

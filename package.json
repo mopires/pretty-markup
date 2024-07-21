@@ -2,7 +2,7 @@
   "name": "pretty-markup",
   "version": "1.0.10",
   "description": "Imagine crafting elegant, semantic HTML structures without the clutter of angle brackets. Pretty Markup, a revolutionary preprocessor like Sass for CSS or TypeScript for JavaScript, Pretty Markup takes HTML to the next level.",
-  "main": "./src/Main.js",
+  "main": "./src/index.js",
   "bin": {
     "pm": "./src/Main.js"
   },

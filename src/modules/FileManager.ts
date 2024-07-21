@@ -38,11 +38,16 @@ export default class FileManager {
 
     return prettyMarkupFiles;
   }
-
+  /**
+   * read each .pm file and call funcion to
+   * write HTML
+   * @param prettyMarkupFiles Array<object>
+   * @returns void
+   */
   ReadPrettyFile(prettyMarkupFiles: Array<object>): void {
     prettyMarkupFiles.forEach((file: any): void => {
       var FileContent = fs.readFileSync(file.path + file.name, "utf-8");
-      let parser = new Parser(new Tokenizer(FileContent, file));
+      let parser = new Parser(new Tokenizer(FileContent));
       let build: Build = parser.compile();
       this.WriteHTML(build, file);
     });
