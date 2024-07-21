@@ -20,7 +20,6 @@ export default class FileManager {
     let folders;
     let path = subfolder;
     folders = fs.readdirSync(path);
-    console.log(folders);
     folders.forEach((folder: string): void => {
       if (!fs.statSync(path + folder).isDirectory()) {
         if (this.isPrettyFile(folder)) {
