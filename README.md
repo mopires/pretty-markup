@@ -9,7 +9,7 @@ Imagine crafting elegant, semantic HTML structures without the clutter of angle 
 * **Semantic Powerhouse:**  Focus on the meaning of your content, not just its presentation. Pretty Markup encourage semantic best practices, ensuring your HTML is not only beautiful but also machine-readable.
 * **A Superset of HTML?**  Think of it as a layer on top of regular HTML. Write clean, concise code in Pretty Markup, and it seamlessly translates into standard, browser-compatible HTML under the hood. It represents a potential future where writing HTML is an expressive and enjoyable experience.
 
-![Pretty Markup](./assets/gif/intellisense.gif)
+![Pretty Markup](https://raw.githubusercontent.com/mopires/pretty-markup/main/assets/gif/intellisense.gif)
 
 ## Get started 
 
