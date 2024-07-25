@@ -113,7 +113,7 @@ class Parser {
   }
 
   compile() {
-    this.prettyMarkup.filter(
+    this.prettyMarkup = this.prettyMarkup.filter(
       (element: Element) =>
         element.Symbol != undefined || element.String != undefined
     );
