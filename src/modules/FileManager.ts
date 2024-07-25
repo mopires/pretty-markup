@@ -18,7 +18,7 @@ export default class FileManager {
     prettyMarkupFiles: Array<object> = []
   ) {
     let folders;
-    let path = subfolder;
+    const path = subfolder;
     folders = fs.readdirSync(path);
     folders.forEach((folder: string): void => {
       if (!fs.statSync(path + folder).isDirectory()) {
@@ -46,20 +46,20 @@ export default class FileManager {
    */
   ReadPrettyFile(prettyMarkupFiles: Array<object>): void {
     prettyMarkupFiles.forEach((file: any): void => {
-      var FileContent = fs.readFileSync(file.path + file.name, "utf-8");
-      let parser = new Parser(new Tokenizer(FileContent));
-      let build: Build = parser.compile();
+      const FileContent = fs.readFileSync(file.path + file.name, "utf-8");
+      const parser = new Parser(new Tokenizer(FileContent));
+      const build: Build = parser.compile();
       this.WriteHTML(build, file);
     });
   }
 
   private isReservedFolder(folder: string) {
-    let protectedDir = [".git", ".github", ".idea", "public", "node_modules"];
+    const protectedDir = [".git", ".github", ".idea", "public", "node_modules"];
     return protectedDir.indexOf(folder) !== -1;
   }
 
   private isPrettyFile(file: string) {
-    let fileExtension = file.split(".")[file.split(".").length - 1];
+    const fileExtension = file.split(".")[file.split(".").length - 1];
     if (fileExtension === "pm") {
       return true;
     }
@@ -79,7 +79,7 @@ export default class FileManager {
   }
 
   private WriteHTML(build: Build, File: IFile) {
-    let fileBuild: IFile = File;
+    const fileBuild: IFile = File;
     fileBuild.path = File.path.replace(this.srcFolder, "public");
 
     if (!fs.existsSync("./public")) {

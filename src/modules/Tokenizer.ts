@@ -12,7 +12,7 @@ class Tokenizer {
   private char_buffer = "";
   private column = 0;
   private parent_symbol = "";
-  private token_id: any = "";
+  private token_id = "";
   private srcFolder = "";
 
   /**
@@ -84,7 +84,7 @@ class Tokenizer {
                 });
                 this.char_buffer = "";
               } else {
-                let close_tag = this.char_buffer.split("close")[1];
+                const close_tag = this.char_buffer.split("close")[1];
                 this.syntaxExpression.forEach((element) => {
                   if (element.Symbol !== undefined) {
                     if (element.Symbol == close_tag) {
@@ -113,7 +113,7 @@ class Tokenizer {
                 });
                 this.char_buffer = "";
               } else {
-                let close_tag = this.char_buffer.split("close")[1];
+                const close_tag = this.char_buffer.split("close")[1];
                 this.syntaxExpression.forEach((element) => {
                   if (element.Symbol !== undefined) {
                     if (element.Symbol == close_tag) {
@@ -176,7 +176,7 @@ class Tokenizer {
             this.nextColumn();
             break;
             let $var = FileContent[this.column];
-            let column_backup = this.column;
+            const column_backup = this.column;
             while (true) {
               this.nextColumn();
               $var = $var + FileContent[this.column];
@@ -237,7 +237,7 @@ class Tokenizer {
   getAttribute(FileContent: string) {
     if (this.char_buffer.length > 0) {
       let value = FileContent[this.column + 1];
-      let close_value_attribute = FileContent[this.column + 1];
+      const close_value_attribute = FileContent[this.column + 1];
       this.nextColumn();
       while (true) {
         this.nextColumn();
@@ -262,11 +262,11 @@ class Tokenizer {
   /**
    *
    * @param variable Collected from the getTokens()
-   * @returns boolean 
+   * @returns boolean
    */
   variablesExist(variable: string | number) {
     variable = variable.toString().trim().replace("$", "");
-    let variable_file = JSON.parse(
+    const variable_file = JSON.parse(
       this.fileManager
         .readFile(`${process.cwd()}/${this.srcFolder}/var.json`)!
         .toString()
@@ -288,7 +288,7 @@ class Tokenizer {
    */
   GetVariableValue(variable: string) {
     variable = variable.toString().trim().replace("$", "");
-    let variable_file = JSON.parse(
+    const variable_file = JSON.parse(
       this.fileManager
         .readFile(`${process.cwd()}/${this.srcFolder}/var.json`)!
         .toString()

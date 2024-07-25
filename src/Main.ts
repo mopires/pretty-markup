@@ -7,8 +7,8 @@ class Main {
   }
 
   Start() {
-    let fileManager: FileManager = new FileManager();
-    let files: Array<object> = fileManager.GetFiles();
+    const fileManager: FileManager = new FileManager();
+    const files: Array<object> = fileManager.GetFiles();
     fileManager.ReadPrettyFile(files);
   }
 }

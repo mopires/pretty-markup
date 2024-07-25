@@ -7,7 +7,7 @@ import Tokenizer from "../Tokenizer";
  */
 export function compiler(prettyMarkup: string) {
   const parser = new Parser(new Tokenizer(prettyMarkup));
-  let build: Build = parser.compile();
+  const build: Build = parser.compile();
 
   return build.htmlCompiled;
 }

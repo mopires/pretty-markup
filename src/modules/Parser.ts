@@ -22,8 +22,8 @@ class Parser {
 
   processFeature(element: Element) {
     // A feature is a keyword/tag of Pretty Markup
-    let feature = ["//", "icon", "style", "javascript", "$", element.Symbol];
-    let feature_tag =
+    const feature = ["//", "icon", "style", "javascript", "$", element.Symbol];
+    const feature_tag =
       feature.indexOf(element.Symbol) > -1
         ? feature[feature.indexOf(element.Symbol)]
         : "";
@@ -67,7 +67,7 @@ class Parser {
   }
 
   getLinkedFilePath(linked_file: any) {
-    let path_pretty = `${process.cwd()}/${this.srcFolder}/${linked_file[0]
+    const path_pretty = `${process.cwd()}/${this.srcFolder}/${linked_file[0]
       .replace("href", "")
       .replace("src", "")
       .replace("=", "")
@@ -75,7 +75,7 @@ class Parser {
       .replace('"', "")
       .replace("'", "")
       .replace("'", "")}`;
-    let path_for_build =
+    const path_for_build =
       process.cwd() +
       "/public/" +
       linked_file[0]
@@ -106,7 +106,8 @@ class Parser {
     let tag = "";
     if (element.Symbol !== "!DOCTYPE") {
       this.elementHasLinkedFiles(element);
-      let attributes = element.attr !== undefined ? element.attr.join(" ") : "";
+      const attributes =
+        element.attr !== undefined ? element.attr.join(" ") : "";
       tag = "<" + element.Symbol + " " + attributes + ">" + os.EOL;
       return tag;
     }
@@ -123,7 +124,7 @@ class Parser {
           ? this.processFeature(element)
           : this.createElement(element);
     });
-    let build: Build = {
+    const build: Build = {
       htmlCompiled: pretty(this.htmlCompiled),
       LinkedFiles: this.linkedFiles
     };
