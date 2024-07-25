@@ -36,8 +36,6 @@ class Tokenizer {
       return token_name + Math.floor(Math.random() * 10000);
     }
 
-    //FileContent = Array.from(FileContent);
-
     while (this.column < FileContent.length) {
       if (!this.isSpecialCharacter(FileContent[this.column])) {
         switch (FileContent[this.column]) {
