@@ -259,7 +259,11 @@ class Tokenizer {
       this.char_buffer = "";
     }
   }
-
+  /**
+   *
+   * @param variable Collected from the getTokens()
+   * @returns boolean 
+   */
   variablesExist(variable: string | number) {
     variable = variable.toString().trim().replace("$", "");
     let variable_file = JSON.parse(
@@ -277,7 +281,11 @@ class Tokenizer {
       return true;
     }
   }
-
+  /**
+   * Not being used yet
+   * @param variable Collected from the getTokens()
+   * @returns Variable value in the var.json
+   */
   GetVariableValue(variable: string) {
     variable = variable.toString().trim().replace("$", "");
     let variable_file = JSON.parse(
@@ -288,7 +296,11 @@ class Tokenizer {
 
     return variable_file[variable].toString();
   }
-
+  /**
+   *
+   * @param character Arg to be tested
+   * @returns boolean If matches the condition of special character
+   */
   isSpecialCharacter(character: string) {
     return "!@#$%¨&*()_+`{^}:><¹²³£¢¬§ªº╚├?°₢\\".includes(character);
   }
